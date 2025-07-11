@@ -17,8 +17,8 @@ const Items = (props) => {
 
                         borderRadius: 5,
 
-                        textAlign: "center",
-                        padding: "1rem",
+                      
+                    
                         borderRadius: "10px",
                         maxWidth: "maxContent",
                         margin: "auto",
@@ -50,7 +50,7 @@ const Items = (props) => {
                                 <div style={{
                                     textWrap: "wrap"
                                 }}>
-                                    <Typography variant='body2'  fontWeight={500}>
+                                    <Typography variant='body2' fontFamily={"roboto"}  fontWeight={500}>
                                         {props.name}
                                     </Typography>
                                 </div>
@@ -59,7 +59,8 @@ const Items = (props) => {
                                     display: "flex",
 
                                     alignItems: "center",
-                                    gap: 5
+                                    gap: 5,
+                                    fontfamily: "Roboto, sans-serif"
                                 }}>
                                     <Typography fontStyle={"bold"} fontSize={20} fontWeight={600}>${props.new_price}</Typography>
                                     <Typography fontStyle={"bold"} color='gray' fontSize={20} fontWeight={600}>   {props.old_price}</Typography>
