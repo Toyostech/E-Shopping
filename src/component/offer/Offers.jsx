@@ -8,13 +8,14 @@ const Offers = () => {
   return (
     <div className='offer' style={{
         width:isMobile? "auto": "65%",
-        height:isMobile? "auto" :"60vh",
+        height:isMobile? "30vh" :"60vh",
         display: "flex",
       
-        padding:isMobile? "5xp":"0px 140px",
-        margin: isMobile? "2px":"100px",
+        padding:isMobile? "3px":"0px 140px",
+        margin: isMobile? "5px":"100px",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        
 
        
     }}>
@@ -61,7 +62,8 @@ const Offers = () => {
             paddingTop: 50
         }}>
             <img style={{
-                width: isMobile? "150px":"400px"
+                width: isMobile? "150px":"400px",
+                height: "auto"
             }} src={exclusive_image} alt="" />
 
         </div>
