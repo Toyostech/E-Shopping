@@ -17,7 +17,7 @@ const Items = (props) => {
 
                         borderRadius: 5,
 
-                      
+                        textAlign: "center",
                     
                         borderRadius: "10px",
                         maxWidth: "maxContent",
@@ -50,7 +50,7 @@ const Items = (props) => {
                                 <div style={{
                                     textWrap: "wrap"
                                 }}>
-                                    <Typography variant='body2' fontFamily={"roboto"}  fontWeight={500}>
+                                    <Typography variant='body2'  fontWeight={500}>
                                         {props.name}
                                     </Typography>
                                 </div>
