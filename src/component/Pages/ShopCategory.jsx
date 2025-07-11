@@ -11,8 +11,8 @@ const ShopCategory = (props) => {
       marginTop: 50
     }}>
       <img src={props.banner} alt="" style={{
-        width: isMobile? "450px": "auto",
-        height: isMobile? "200px": "auto"
+        width: isMobile? "400px": "auto",
+        height: isMobile? "100px": "auto"
 
 
       }}  />
