@@ -19,12 +19,16 @@ const Hero = () => {
                             <Grid item md={6}  >
                                 <Typography variant='h5' paddingTop={20} fontSize={{ xs: 20, md: 30 }}>NEW ARRIVALS ONLY </Typography>
                                 <div style={{
+                                    fontFamily: "sans-serif",
+                                  
                                     
 
 
                                     fontWeight: "bold"
                                 }}>
-                                    <Typography fontSize={{xs: "3rem", md: "5rem"}} fontWeight={600} >new
+                                    <Typography sx={{
+                                        lineBreak: "auto"
+                                    }} fontSize={{xs: "3rem", md: "5rem"}} fontWeight={600} >new
                                         <span>
                                             <img src={hand_icon} alt="" width={50} height={50} />
                                         </span>
@@ -33,18 +37,18 @@ const Hero = () => {
 
                                    
                                     <div style={{
-                                        padding: 10,
+                                        padding:isMobile? "5px 0px 5px 0px  ": "10px",
                                         borderRadius: '30px',
                                         background: 'red',
                                         display: "flex",
                                         justifyContent: "center",
                                         alignItems: "center",
-                                        gap: 10
+                                  
 
 
 
                                     }}>
-                                        <Typography variant='h5' fontSize={"2.5rem"} fontWeight={600}>
+                                        <Typography variant='h5' fontSize={{xs: "1.5rem", md: "2rem"}} fontWeight={600}>
                                             Latest Collection </Typography>
                                         <img width={25} height={25} src={arrow_icon} alt="" />
                                     </div>
@@ -55,7 +59,10 @@ const Hero = () => {
 
                             </Grid>
                             <Grid item md={6}>
-                                <img src={hero_icon} alt="" width={300} height={"auto"} />
+                                <img src={hero_icon} style={{
+                                    width:isMobile? 200 : 300,
+                                    height: "auto"
+                                }} alt="" />
 
                             </Grid>
 

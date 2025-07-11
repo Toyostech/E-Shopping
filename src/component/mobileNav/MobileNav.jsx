@@ -16,8 +16,8 @@ const MobileNav = () => {
     <Container>
       <IconButton onClick={() => setopen(true)}>
         <img src={menu} alt="menu icon" style={{
-          width: "50px",
-          height: "50px",
+          width: "25px",
+          height: "25px",
 
         }} />
 
