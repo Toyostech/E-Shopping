@@ -1,7 +1,8 @@
-import { Box, Button, TextField, Typography } from '@mui/material'
+import { Box, Button, TextField, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React from 'react'
 
 const NewLetter = () => {
+    const isMobile= useMediaQuery(useTheme().breakpoints.down("sm"))
   return (
     <Box className='offer' sx={{
         display: {

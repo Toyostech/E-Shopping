@@ -1,4 +1,4 @@
-import { Button, Container, Drawer, IconButton, Tab, Tabs } from '@mui/material'
+import { Box, Button, Container, Drawer, IconButton, Tab, Tabs } from '@mui/material'
 import React, { useContext, useState } from 'react'
 import menu from '../../Assets/menu.png';
 import cart_icon from '../../Assets/cart_icon.png';
@@ -31,66 +31,83 @@ const MobileNav = () => {
 
         }
       }} open={open} onClose={() => setopen(false)} >
-        <Tabs>
-          <div style={{
-            display: "flex",
-            flexDirection: "column",
-            color: "white",
-            textAlign: "center",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
-            {NavbarData.map((link, index) => (
-              <Tab onClose={() => setopen(false)} key={index} href={link.path} label={link.title} />
-            ))}
-          </div>
-
-        </Tabs>
-
-
-
-
-        <div style={{
+        <Box sx={{
           display: "flex",
-          flexDirection: "row",
+          flexDirection: "column",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
+          gap: 2
 
         }}>
-          <Link to="/cart">
-            <IconButton  >
-              <img src={cart_icon} color='white' alt="" />
+          <Tabs>
+            <div style={{
+              display: "flex",
+              flexDirection: "column",
+              color: "white",
+              textAlign: "center",
+              justifyContent: "center",
+              alignItems: "center",
+             
 
-            </IconButton>
+            }}>
+              {NavbarData.map((link, index) => (
+                <Tab onClose={() => setopen(false)} key={index} href={link.path} label={link.title} />
+              ))}
+            </div>
 
-
-          </Link>
+          </Tabs>
           <div style={{
-            background: "red",
-            width: "1.5rem",
-            aspectRatio: 1 / 1,
-            borderRadius: "50%",
-            textAlign: "center",
-            marginLeft: -15,
-            marginTop: -19,
-            zIndex: 1
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center"
+
+          }}>
+            <Link to="/cart">
+              <IconButton  >
+                <img src={cart_icon} color='white' alt="" />
+
+              </IconButton>
+
+
+            </Link>
+            <div style={{
+              background: "red",
+              width: "1.5rem",
+              aspectRatio: 1 / 1,
+              borderRadius: "50%",
+              textAlign: "center",
+              marginLeft: -15,
+              marginTop: -19,
+              zIndex: 1
 
 
 
-          }} onClose={() => setopen(false)}>
-            <span>
+            }} onClose={() => setopen(false)}>
+              <span>
 
-              {getTotalCartItem()}
+                {getTotalCartItem()}
 
-            </span>
+              </span>
+            </div>
+
+
+
+          </div>
+          <div>
+            <Button href='/login' variant='contained' sx={{ marginLeft: 'auto' }}>
+              LOGIN
+            </Button>
+
           </div>
 
+        </Box>
 
 
-        </div>
-        <Button href='/login' variant='contained' sx={{ marginLeft: 'auto' }}>
-          LOGIN
-        </Button>
+
+
+
+
 
       </Drawer>
 
