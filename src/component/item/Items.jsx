@@ -12,8 +12,8 @@ const Items = (props) => {
 
 
                 <Box>
-                    <Card elevation={2} sx={{
-                        gap: "0.6rem",
+                    <Card elevation={3} spacing={5} sx={{
+                        gap: "1rem",
 
                         borderRadius: 5,
 
@@ -48,9 +48,9 @@ const Items = (props) => {
                             </CardMedia>
                             <CardContent>
                                 <div style={{
-                                    textWrap: "wrap"
+                                    
                                 }}>
-                                    <Typography variant='body2'  fontWeight={500}>
+                                    <Typography variant='body2' fontSize={{xs:10 , md:15}}  fontWeight={200}>
                                         {props.name}
                                     </Typography>
                                 </div>
@@ -62,8 +62,8 @@ const Items = (props) => {
                                     gap: 5,
                                     fontfamily: "Roboto, sans-serif"
                                 }}>
-                                    <Typography fontStyle={"bold"} fontSize={20} fontWeight={600}>${props.new_price}</Typography>
-                                    <Typography fontStyle={"bold"} color='gray' fontSize={20} fontWeight={600}>   {props.old_price}</Typography>
+                                    <Typography variant='body2' fontStyle={"bold"} fontSize={{xs:10 , md:15}}   fontWeight={600}>${props.new_price}</Typography>
+                                    <Typography variant='body2' fontStyle={"bold"} color='gray' fontSize={{xs:10 , md:15}} fontWeight={600}>   {props.old_price}</Typography>
 
                                 </div>
 

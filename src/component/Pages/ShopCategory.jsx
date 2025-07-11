@@ -12,7 +12,7 @@ const ShopCategory = (props) => {
     }}>
       <img src={props.banner} alt="" style={{
         width: isMobile? "400px": "auto",
-        height: isMobile? "100px": "auto"
+        height: isMobile? "00px": "auto"
 
 
       }}  />
@@ -22,7 +22,7 @@ const ShopCategory = (props) => {
           justifyContent: "space-between",
           alignItems: "center"
         }}>
-          <Typography variant='h6' fontWeight={500}>
+          <Typography variant='h6' fontWeight={{xs:400, md: 500}}>
             Showing 1-12 
             <span style={{
               fontSize: "15px",
@@ -35,12 +35,12 @@ const ShopCategory = (props) => {
             display: "flex",
             flexDirection: "row",
             alignItems: "center",
-            padding: 10,
+            padding:isMobile? 5 :10,
             border: "1px solid red",
             gap: 5,
             borderRadius: 25
           }}>
-            <Typography fontSize={15}>Sort by</Typography>
+            <Typography fontSize={{xs:10, md:15}}>Sort by</Typography>
             <img src={dropdown_icon} alt="" />
           </div>
         </div>
