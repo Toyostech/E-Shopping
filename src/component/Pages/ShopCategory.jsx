@@ -12,7 +12,7 @@ const ShopCategory = (props) => {
     }}>
       <img src={props.banner} alt="" style={{
         width: isMobile? "400px": "auto",
-        height: isMobile? "00px": "auto"
+        height: isMobile? "100px": "auto"
 
 
       }}  />
