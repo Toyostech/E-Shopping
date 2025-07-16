@@ -101,6 +101,7 @@ const LoginSignup = () => {
                   border: "1px solid red",
                   borderRadius: "30px",
                   outline: "none"
+                  
 
 
                 }} type="text" placeholder='Your Name' />

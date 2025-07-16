@@ -63,7 +63,7 @@ const Offers = () => {
         }}>
             <img style={{
                 width: isMobile? "150px":"400px",
-                height: "auto"
+                height: isMobile? "200px":"500px"
             }} src={exclusive_image} alt="" />
 
         </div>

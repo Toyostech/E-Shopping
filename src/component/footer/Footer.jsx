@@ -6,10 +6,11 @@ import pintester_icon from '../../Assets/pintester_icon.png'
 import whatsapp_icon from '../../Assets/whatsapp_icon.png'
 
 const Footer = () => {
-    const isMobile= useMediaQuery(useTheme().breakpoints.down("sm"))
+    const isMobile= useMediaQuery(useTheme().breakpoints.down("md"))
     return (
         <section style={{
-            paddingTop: 78
+            paddingTop:isMobile? 30 : 40
+            
         }}>
             <div style={{
                 textAlign: "center",
@@ -17,13 +18,15 @@ const Footer = () => {
                 background: "#000"
             }}>
                 <div className='flex' style={{
-                    padding: 20
+                    padding:isMobile? 10: 20
                 }}>
-                    <img src={footer_logo} alt="" />
-                    <Typography variant='h4' fontWeight={"bold"} color='#fff'>SHOPPER</Typography>
+                    <img src={footer_logo} alt="" style={{
+                        width: isMobile? "50px": "auto"
+                    }} />
+                    <Typography variant='h4' fontSize={{xs:15, md:30}} fontWeight={"bold"} color='#fff'>SHOPPER</Typography>
                 </div>
                 <div style={{
-                    padding: 15
+                   
                 }}>
                     <Box className="flex" sx={{
                         display: "flex",
@@ -38,7 +41,7 @@ const Footer = () => {
                         listStyle: "none",
                         gap: 2,
                         padding: 2,
-                        fontSize: isMobile? "1rem": "2rem",
+                        fontSize: isMobile? "0.5rem": "2rem",
                         color: "#fff"
                        
 
@@ -51,8 +54,8 @@ const Footer = () => {
                     </Box>
                 </div>
                 <div className='flex' style={{
-                    padding: 15,
-                    gap: 30,
+                    padding:isMobile? 10 : 15,
+                    gap:isMobile? 20: 30,
                     background: "#fff"
                 }}>
                     <div>
@@ -68,11 +71,10 @@ const Footer = () => {
                     </div>
                 </div>
                 <div style={{
-                    padding: 10,
+                    padding:isMobile? 5: 10,
                     color: "#fff"
                 }}>
-                    <hr />
-                    
+ 
                     <Typography sx={{
                         padding: 2
                     }}>Copyright @ Toyostech</Typography>
