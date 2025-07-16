@@ -75,7 +75,8 @@ const Footer = () => {
                     color: "#fff"
                 }}>
  
-                    <Typography sx={{
+                    <Typography fontSize={{xs:10 , md: 20}} sx={{
+
                         padding: 2
                     }}>Copyright @ Toyostech</Typography>
                 </div>

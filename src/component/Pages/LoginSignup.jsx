@@ -50,21 +50,17 @@ const LoginSignup = () => {
   return (
     <>
       <section style={{
-        paddingTop: 50,
-        marginTop: 15,
+        paddingTop:isMobile? 40: 50,
+        marginTop: isMobile? 10:15,
         background: "#fce3fe",
         textAlign: "center",
         justifyContent: "center",
-
-
-
-
 
       }}>
         <Box sx={{
           bgcolor: "#FFF",
           padding: 5,
-          width: isMobile ? "300px" : "400px",
+    
 
           margin: "auto",
           padding: "40px 60px",
@@ -139,7 +135,7 @@ const LoginSignup = () => {
                 marginTop: 2,
                 padding: "15px 100px",
                 cursor: "pointer",
-                fontWeight: 600
+                fontWeight:isMobile? 500: 600
               }}>Continue</Button>
             <div style={{
               display: "flex",
