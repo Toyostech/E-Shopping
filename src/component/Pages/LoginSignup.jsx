@@ -139,8 +139,7 @@ const LoginSignup = () => {
                 bgcolor: "red",
                 border: "1px solid red",
                 borderRadius: "35px",
-                marginTop: 2,
-                padding: "5px 30px",
+                 padding: "5px 30px",
                 cursor: "pointer",
                 fontWeight:isMobile? 500: 600
               }}>Continue</Button>

@@ -3,11 +3,15 @@ import React, { useContext } from 'react'
 import star_icon from '../../Assets/star_icon.png'
 import star_dull_icon from '../../Assets/star_dull_icon.png'
 import { ShopContext } from '../Context/ShopContext'
+import Size from './sizeada'
+
+
+
 const ProductDisplay = (props) => {
     const { product } = props;
     const { addToCart } = useContext(ShopContext)
     const isMobile = useMediaQuery(useTheme().breakpoints.down("md", "sx"))
-    
+
     return (
         <Container>
             <Box sx={{
@@ -25,7 +29,7 @@ const ProductDisplay = (props) => {
             }}>
                 <div style={{
                     display: "flex",
-                    flexDirection: isMobile?   "column" : "row",
+                    flexDirection: isMobile ? "column" : "row",
                     gap: 5
 
 
@@ -35,30 +39,38 @@ const ProductDisplay = (props) => {
                     <div style={{
                         display: "flex",
                         flexDirection: isMobile ? "row" : "column",
-                       
+                        justifyContent: "center",
+
                         alignItems: "center",
                         gap: 5
                     }}>
-                        <img src={product.image}  alt="" width={150} height={"150px"} />
-                        <img src={product.image} alt="" width={150} height={"150px"} />
-                        <img src={product.image} alt="" width={150} height={"150px"} />
-                       
+                        <img src={product.image} alt="" style={{
+                            width:isMobile? "90px": "150px"
+                        }}  />
+                        <img src={product.image} alt="" style={{
+                            width:isMobile? "90px": "150px"
+                        }}  />
+                        <img src={product.image} alt="" style={{
+                            width:isMobile? "90px": "150px"
+                        }}  />
+
                     </div>
                     <div style={{
-                      textAlign: "center",
-                      
+                        textAlign: "center",
+
                     }}>
 
                         <img src={product.image} alt="" style={{
-                            width: isMobile? 300 : 500,
-                            height: isMobile?  "auto" : 500
+                            width: isMobile ? 250 : 500,
+                            height: isMobile ? "auto" : 500,
+                            
 
                         }} />
                     </div>
 
                 </div>
                 <div>
-                    <Typography variant='h5'  fontSize={{
+                    <Typography variant='h5' fontSize={{
                         xs: "1rem",
                         md: "1.5rem"
                     }} fontWeight={800}>{product.name}</Typography>
@@ -116,50 +128,36 @@ const ProductDisplay = (props) => {
                             </Typography>
                         </div>
                         <div>
-                            <Typography variant='h5' fontWeight={800}>Select Size</Typography>
+                            <Typography variant='h5' fontSize={{
+                                xs: 15, md:20
+                            }} fontWeight={800}>Select Size</Typography>
                             <div style={{
                                 display: "flex",
 
                                 alignItems: "center",
-                                gap: 10,
+                                gap:isMobile? 5:10,
+                                fontSize: isMobile ? 10 : 15
 
                             }}>
-                                <div style={{
-                                    padding: "10px 20px",
-                                    border: "1px solid red",
-                                    fontWeight: "bold",
-                                    fontSize: 15
+                                {Size.map((i, index) => (
+                                    <div key={index} style={{
+                                        padding:isMobile? "5px 10px":"10px 15px",
+                                        border: "1px solid red",
+                                        fontWeight: "bold",
 
-                                }}>S</div>
-                                <div style={{
-                                    padding: "10px 20px",
-                                    border: "1px solid red",
-                                    fontWeight: "bold",
-                                    fontSize: 15
 
-                                }}>M</div>
-                                <div style={{
-                                    padding: "10px 20px",
-                                    border: "1px solid red",
-                                    fontWeight: "bold",
-                                    fontSize: 15
+                                    }}>
+                                        <Typography fontSize={{
+                                        xs:"0.5rem" ,md:"1rem"
+                                        }} fontWeight={900}>
+                                           {i}
+                                        </Typography>
+                                    </div>
 
-                                }}>L</div>
-                                <div style={{
-                                    padding: "10px 20px",
-                                    border: "1px solid red",
-                                    fontWeight: "bold",
-                                    fontSize: 15
 
-                                }}>XL</div>
+                                ))}
 
-                                <div style={{
-                                    padding: "10px 20px",
-                                    border: "1px solid red",
-                                    fontWeight: "bold",
-                                    fontSize: 15
-
-                                }}>XXL</div>
+                                
                             </div>
                         </div>
                         <Button variant='contained' sx={{
