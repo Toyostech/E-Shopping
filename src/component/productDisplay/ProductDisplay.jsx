@@ -42,7 +42,7 @@ const ProductDisplay = (props) => {
                         <img src={product.image}  alt="" width={150} height={"150px"} />
                         <img src={product.image} alt="" width={150} height={"150px"} />
                         <img src={product.image} alt="" width={150} height={"150px"} />
-                        <img src={product.image} alt="" width={150} height={"150px"} />
+                       
                     </div>
                     <div style={{
                       textAlign: "center",
@@ -51,7 +51,7 @@ const ProductDisplay = (props) => {
 
                         <img src={product.image} alt="" style={{
                             width: isMobile? 300 : 500,
-                            height: isMobile?  "auto" : 600
+                            height: isMobile?  "auto" : 500
 
                         }} />
                     </div>
@@ -59,7 +59,8 @@ const ProductDisplay = (props) => {
                 </div>
                 <div>
                     <Typography variant='h5'  fontSize={{
-                        xs: "1rem"
+                        xs: "1rem",
+                        md: "1.5rem"
                     }} fontWeight={800}>{product.name}</Typography>
                     <div>
                         <img src={star_icon} alt="" />

@@ -12,8 +12,8 @@ const Shop = () => {
     const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
     return (
         <section style={{
-            paddingTop: isMobile ? 2 : 50,
-            marginTop: isMobile ? 1 : 15,
+            paddingTop: isMobile ? 0 : 50,
+            marginTop: isMobile ? 0 : 15,
 
 
 

@@ -10,7 +10,7 @@ const Hero = () => {
         <>
             <section style={{
                 background: " #fde1ff",
-                height:isMobile? "50hv": "100hv"
+               
             }}>
                 <Container>
 
@@ -28,7 +28,7 @@ const Hero = () => {
                                 }}>
                                     <Typography sx={{
                                         lineBreak: "auto"
-                                    }} fontSize={{xs: "3rem", md: "5rem"}} fontWeight={600} >new
+                                    }} fontSize={{xs: "2.5rem", md: "5rem"}} fontWeight={800} >new
                                         <span>
                                             <img src={hand_icon} alt="" width={50} height={50} />
                                         </span>
@@ -48,7 +48,7 @@ const Hero = () => {
 
 
                                     }}>
-                                        <Typography variant='h5' fontSize={{xs: "1.5rem", md: "2rem"}} fontWeight={600}>
+                                        <Typography variant='h5' fontSize={{xs: "1rem", md: "2rem"}} fontWeight={600}>
                                             Latest Collection </Typography>
                                         <img width={25} height={25} src={arrow_icon} alt="" />
                                     </div>
@@ -60,7 +60,7 @@ const Hero = () => {
                             </Grid>
                             <Grid item md={6}>
                                 <img src={hero_icon} style={{
-                                    width:isMobile? 200 : 300,
+                                    width:isMobile? 200 : 600,
                                     height: "auto"
                                 }} alt="" />
 

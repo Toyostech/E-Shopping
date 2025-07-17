@@ -15,7 +15,7 @@ const LoginSignup = () => {
       [e.target.name]: e.target.value
 
     }))
-   
+
 
 
 
@@ -50,17 +50,21 @@ const LoginSignup = () => {
   return (
     <>
       <section style={{
-        paddingTop:isMobile? 40: 50,
-        marginTop: isMobile? 10:15,
+        paddingTop: 50,
+        marginTop: 15,
         background: "#fce3fe",
         textAlign: "center",
         justifyContent: "center",
+
+
+
+
 
       }}>
         <Box sx={{
           bgcolor: "#FFF",
           padding: 5,
-    
+          width: isMobile ? "300px" : "400px",
 
           margin: "auto",
           padding: "40px 60px",
@@ -91,19 +95,19 @@ const LoginSignup = () => {
                 value={inputforn.FullName}
                 name='FullName'
                 onChange={submitHandler} style={{
-                  padding: "15px 100px",
+                  padding: "15px 20px",
                   textAlign: "center",
+                  width: isMobile ? "250px" : "300px",
                   height: "auto",
                   border: "1px solid red",
                   borderRadius: "30px",
                   outline: "none"
-                  
 
 
                 }} type="text" placeholder='Your Name' />
               <input style={{
-                padding: "15px 100px",
-
+                padding: "15px 20px",
+                width: isMobile ? "250px" : "300px",
                 height: "auto",
                 border: "1px solid red",
                 borderRadius: "30px",
@@ -113,8 +117,8 @@ const LoginSignup = () => {
               }} type="mail" onChange={submitHandler} value={inputforn.Email}
                 name='Email' placeholder='Your mail' />
               <input style={{
-                padding: "15px 100px",
-
+                padding: "15px 20px",
+                width: isMobile ? "250px" : "300px",
                 height: "auto",
                 border: "1px solid red",
                 borderRadius: "30px",
@@ -135,7 +139,7 @@ const LoginSignup = () => {
                 marginTop: 2,
                 padding: "15px 100px",
                 cursor: "pointer",
-                fontWeight:isMobile? 500: 600
+                fontWeight: 600
               }}>Continue</Button>
             <div style={{
               display: "flex",
