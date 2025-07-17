@@ -60,7 +60,7 @@ const Hero = () => {
                             </Grid>
                             <Grid item md={6}>
                                 <img src={hero_icon} style={{
-                                    width:isMobile? 200 : 600,
+                                    width:isMobile? 300 : 600,
                                     height: "auto"
                                 }} alt="" />
 
