@@ -50,11 +50,12 @@ const LoginSignup = () => {
   return (
     <>
       <section style={{
-        paddingTop: 50,
-        marginTop: 15,
+        paddingTop:isMobile? 40:90,
+        marginTop:isMobile? 10 : 15,
         background: "#fce3fe",
         textAlign: "center",
         justifyContent: "center",
+        paddingBottom:isMobile? 20: 30
 
 
 
@@ -63,16 +64,18 @@ const LoginSignup = () => {
       }}>
         <Box sx={{
           bgcolor: "#FFF",
-          padding: 5,
+          paddingBottom: 50,
+         
           width: isMobile ? "300px" : "400px",
 
           margin: "auto",
-          padding: "40px 60px",
+          padding: "20px 6px",
           boxShadow: "10px 5px 10px",
+          borderRadius: 10
 
-          ":hover": {
-            background: "#fce3fd"
-          }
+          // ":hover": {
+          //   background: "#fce3fd"
+          // }
 
 
 
@@ -132,14 +135,14 @@ const LoginSignup = () => {
             <Button variant='outlined'
               onClick={Submit}
 
-              fullWidth sx={{
+               sx={{
                 bgcolor: "red",
                 border: "1px solid red",
                 borderRadius: "35px",
                 marginTop: 2,
-                padding: "15px 100px",
+                padding: "5px 30px",
                 cursor: "pointer",
-                fontWeight: 600
+                fontWeight:isMobile? 500: 600
               }}>Continue</Button>
             <div style={{
               display: "flex",
@@ -156,11 +159,12 @@ const LoginSignup = () => {
             <div style={{
               display: "flex",
               gap: 10,
+              
 
             }}>
               <input padding={"50px"} type="checkbox" />
 
-              <Typography variant='body2' fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
+              <Typography  fontSize={{xs:10, md:15}} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
             </div>
 
             <Button onSubmit={Submit}>Submit</Button>

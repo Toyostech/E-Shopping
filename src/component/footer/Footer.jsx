@@ -9,13 +9,14 @@ const Footer = () => {
     const isMobile= useMediaQuery(useTheme().breakpoints.down("md"))
     return (
         <section style={{
-            paddingTop:isMobile? 30 : 40
+            paddingTop:isMobile? 30 : 0
             
         }}>
             <div style={{
                 textAlign: "center",
                 justifyContent: "center",
-                background: "#000"
+                background: "#000",
+                
             }}>
                 <div className='flex' style={{
                     padding:isMobile? 10: 20

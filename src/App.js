@@ -1,7 +1,7 @@
 
 import './App.css';
 
-import { Routes, Route, BrowserRouter, } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom'
 import NavBar from './component/navbars/NavBars';
 import ShopCategory from './component/Pages/ShopCategory'
 import Product from './component/Pages/Product'
@@ -13,6 +13,7 @@ import banner_kids from './Assets/banner_kids.png'
 import banner_mens from './Assets/banner_mens.png'
 import banner_women from './Assets/banner_women.png'
 import NavBars from './component/navbars/NavBars';
+
 function App() {
   return (
     <div style={{
@@ -20,13 +21,20 @@ function App() {
     }}>
 
 
-      <BrowserRouter>
-        <NavBars />
+
+
+
+
+      <Router>
+        <NavBar/>
 
 
         <Routes>
-
           <Route path='/' element={<Shop />} />
+
+
+
+
           <Route path='/mens' element={<ShopCategory banner={banner_mens} category="men" />} />
           <Route path='/womens' element={<ShopCategory banner={banner_women} category="women" />} />
           <Route path='/kids' element={<ShopCategory banner={banner_kids} category="kid" />} />
@@ -38,9 +46,17 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
 
+
+
         </Routes>
 
-      </BrowserRouter>
+
+
+
+
+      </Router>
+
+
 
 
 
