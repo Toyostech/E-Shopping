@@ -1,3 +1,4 @@
+import { Email } from '@mui/icons-material'
 import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
 import React, { useState } from 'react'
 
@@ -9,26 +10,52 @@ const LoginSignup = () => {
     Email: "",
     Password: ""
   })
-  const submitHandler = (e) => {
-    setinputform((preState) => ({
-      ...preState,
-      [e.target.name]: e.target.value
 
-    }))
-
-
-
-
-  }
-
-
-
-
+  const [errors, setErrors] = useState({})
   const HandleSubmit = (e) => {
     e.preventDefault()
+    const validationError = validateForm(inputforn)
+    setErrors(validationError)
     console.log(inputforn)
 
+
+  };
+
+
+
+  const submitHandler = (e) => {
+    const { name, value } = e.target;
+    setinputform({ ...inputforn, [name]: value })
+
+
+  };
+  const validateForm = (data) => {
+    let errors = {}
+    if (!data.FullName) {
+      errors.FullName = " first name is required"
+    }
+    if (data.Email) {
+      errors.Email = " first Email is required"
+    } else if (!validateEmail(data.Email)) {
+      errors.Email = "Invalid mail"
+    }
+    if (!data.Password) {
+      errors.Password = " first Password is required"
+    }
+
+    return errors
+
   }
+  function validateEmail(Email) {
+    const re = /\s+@\s+\.\s+/
+    return re.test(Email)
+
+  }
+
+
+
+
+
 
   const Submit = () => {
     setinputform(
@@ -39,9 +66,11 @@ const LoginSignup = () => {
 
 
       }
-
+     
     )
-    console.log(inputforn)
+     console.log(inputforn)
+
+
 
   }
 
@@ -50,12 +79,12 @@ const LoginSignup = () => {
   return (
     <>
       <section style={{
-        paddingTop:isMobile? 40:90,
-        marginTop:isMobile? 10 : 15,
+        paddingTop: isMobile ? 40 : 90,
+        marginTop: isMobile ? 10 : 15,
         background: "#fce3fe",
         textAlign: "center",
         justifyContent: "center",
-        paddingBottom:isMobile? 20: 30
+        paddingBottom: isMobile ? 20 : 30
 
 
 
@@ -65,7 +94,7 @@ const LoginSignup = () => {
         <Box sx={{
           bgcolor: "#FFF",
           paddingBottom: 50,
-         
+
           width: isMobile ? "300px" : "400px",
 
           margin: "auto",
@@ -83,7 +112,7 @@ const LoginSignup = () => {
 
 
         }} >
-          <form onSubmit={HandleSubmit} method='post'>
+          <form onSubmit={HandleSubmit}>
             <Typography variant='h3' fontSize={30} fontWeight={"bold"}>Sign Up</Typography>
             <div style={{
               marginTop: 10,
@@ -94,31 +123,39 @@ const LoginSignup = () => {
               gap: 20,
 
             }}>
-              <input
-                value={inputforn.FullName}
-                name='FullName'
-                onChange={submitHandler} style={{
+              <div>
+                <input
+                  value={inputforn.FullName}
+                  name='FullName'
+                  onChange={submitHandler} style={{
+                    padding: "15px 20px",
+                    textAlign: "center",
+                    width: isMobile ? "250px" : "300px",
+                    height: "auto",
+                    border: "1px solid red",
+                    borderRadius: "30px",
+                    outline: "none"
+
+
+                  }} type="text" placeholder='Your Name' />
+                {errors.FullName && <span>{errors.FullName}</span>}
+              </div>
+
+              <div>
+
+                <input style={{
                   padding: "15px 20px",
-                  textAlign: "center",
                   width: isMobile ? "250px" : "300px",
                   height: "auto",
                   border: "1px solid red",
                   borderRadius: "30px",
-                  outline: "none"
+                  outline: "none",
 
 
-                }} type="text" placeholder='Your Name' />
-              <input style={{
-                padding: "15px 20px",
-                width: isMobile ? "250px" : "300px",
-                height: "auto",
-                border: "1px solid red",
-                borderRadius: "30px",
-                outline: "none",
-
-
-              }} type="mail" onChange={submitHandler} value={inputforn.Email}
-                name='Email' placeholder='Your mail' />
+                }} type="mail" onChange={submitHandler} value={inputforn.Email}
+                  name='Email' placeholder='Your mail' />
+                {errors.Email && <span>{errors.Email}</span>}
+              </div>
               <input style={{
                 padding: "15px 20px",
                 width: isMobile ? "250px" : "300px",
@@ -131,8 +168,11 @@ const LoginSignup = () => {
                 onChange={submitHandler}
                 value={inputforn.Password}
                 name="Password" placeholder='password' />
+              {errors.Password && <span>{errors.Password}</span>}
+
+
             </div>
-            <Button variant='outlined'
+            {/* <Button variant='outlined'
               onClick={Submit}
 
                sx={{
@@ -142,7 +182,7 @@ const LoginSignup = () => {
                  padding: "5px 30px",
                 cursor: "pointer",
                 fontWeight:isMobile? 500: 600
-              }}>Continue</Button>
+              }}>Continue</Button> */}
             <div style={{
               display: "flex",
               flexDirection: "row",
@@ -158,15 +198,15 @@ const LoginSignup = () => {
             <div style={{
               display: "flex",
               gap: 10,
-              
+
 
             }}>
               <input padding={"50px"} type="checkbox" />
 
-              <Typography  fontSize={{xs:10, md:15}} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
+              <Typography fontSize={{ xs: 10, md: 15 }} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
             </div>
 
-            <Button onSubmit={Submit}>Submit</Button>
+            <Button type='submit' onSubmit={Submit}>Submit</Button>
 
           </form>
 
