@@ -3,7 +3,6 @@ import { ShopContext } from '../Context/ShopContext'
 import remove_icon from "../../Assets/cart_cross_icon.png";
 import { Box, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
 import MobileCart from '../MobileCart';
-import { div } from 'framer-motion/client';
 
 const CartItems = () => {
     const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
