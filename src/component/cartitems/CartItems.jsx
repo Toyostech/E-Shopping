@@ -64,11 +64,11 @@ const CartItems = () => {
                                             }}>
                                                 <img src={e.image} alt="" height={"90px"} />
                                                 <Typography fontSize={{
-                                                    xs: "10px",
+                                                   
 
                                                 }}>{e.name}</Typography>
                                                 <Typography fontSize={{
-                                                    xs: "12px",
+                                                 
 
                                                 }} >${e.new_price}</Typography>
                                                 <button style={{
