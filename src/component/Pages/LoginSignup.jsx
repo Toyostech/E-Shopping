@@ -1,54 +1,74 @@
-import { Email } from '@mui/icons-material'
-import { Box, Button, Typography, useMediaQuery, useTheme } from '@mui/material'
-import React, { useState } from 'react'
+import React, {
+  useEffect,
+  useState,
+} from 'react';
 
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
 const LoginSignup = () => {
+  const initialValue = { FullName: "", Email: "", Password: "" }
 
-  const [inputforn, setinputform] = useState({
-    FullName: "",
-    Email: "",
-    Password: ""
-  })
+  const [inputforn, setinputform] = useState(initialValue)
+  const [errorForm, seterrorForm] = useState({})
+  const [isSubmit, setisSubmit] = useState(false)
 
-  const [errors, setErrors] = useState({})
-  const HandleSubmit = (e) => {
-    e.preventDefault()
-    const validationError = validateForm(inputforn)
-    setErrors(validationError)
+
+  const handleChange = (e) => {
+
+    const { name, value } = e.target
+    setinputform({ ...inputforn, [name]: value })
     console.log(inputforn)
 
-
-  };
-
-
-
-  const submitHandler = (e) => {
-    const { name, value } = e.target;
-    setinputform({ ...inputforn, [name]: value })
+  }
+  // creacting Handle submit 
+  const handleSubit = (e) => {
+    e.preventDefault();
+    seterrorForm(validate(inputforn))
+    setisSubmit(true)
 
 
-  };
-  const validateForm = (data) => {
-    let errors = {}
-    if (!data.FullName) {
-      errors.FullName = " first name is required"
+
+  }
+  useEffect(() => {
+    console.log(errorForm)
+    if (Object.keys(errorForm).length === 0 && isSubmit) {
+      console.log(inputforn)
     }
-    if (data.Email) {
-      errors.Email = " first Email is required"
-    } else if (!validateEmail(data.Email)) {
-      errors.Email = "Invalid mail"
+  }, []);
+
+
+  // validate
+  const validate = (data) => {
+    const errors = {}
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+
+    if (!data.FullName) {
+      errors.FullName = " fullname is required"
+
+    }
+    if (!data.Email) {
+      errors.Email = " Email is required"
+
+    } else if (!regex.test(data.Email)) {
+      errors.Email = "this is not valide mail"
+
     }
     if (!data.Password) {
-      errors.Password = " first Password is required"
-    }
+      errors.Password = " Password is required"
 
+    } else if (data.Password.length < 4) {
+      errors.Password = "This password is too short"
+
+    }
     return errors
 
-  }
-  function validateEmail(Email) {
-    const re = /\s+@\s+\.\s+/
-    return re.test(Email)
 
   }
 
@@ -57,22 +77,35 @@ const LoginSignup = () => {
 
 
 
-  const Submit = () => {
-    setinputform(
-      {
-        FullName: "",
-        Email: "",
-        Password: ""
 
 
-      }
-     
-    )
-     console.log(inputforn)
+  // function validateEmail(Email) {
+  //   const re = ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+  //   return re.test(Email)
+
+  // }
 
 
 
-  }
+
+
+
+  // const Submit = () => {
+  //   setinputform(
+  //     {
+  //       FullName: "",
+  //       Email: "",
+  //       Password: ""
+
+
+  //     }
+
+  //   )
+  //    console.log(inputforn)
+
+
+
+  // }
 
 
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
@@ -112,7 +145,13 @@ const LoginSignup = () => {
 
 
         }} >
-          <form onSubmit={HandleSubmit}>
+          {Object.keys(errorForm).length === 0 && isSubmit ? (<p style={{
+            color: "green"
+          }}>Sign in Successful</p>) : (
+            <pre>{JSON.stringify(inputforn, undefined, 2)}</pre>
+          )}
+
+          <form onSubmit={handleSubit}>
             <Typography variant='h3' fontSize={30} fontWeight={"bold"}>Sign Up</Typography>
             <div style={{
               marginTop: 10,
@@ -127,7 +166,8 @@ const LoginSignup = () => {
                 <input
                   value={inputforn.FullName}
                   name='FullName'
-                  onChange={submitHandler} style={{
+                  onChange={handleChange}
+                  style={{
                     padding: "15px 20px",
                     textAlign: "center",
                     width: isMobile ? "250px" : "300px",
@@ -138,7 +178,9 @@ const LoginSignup = () => {
 
 
                   }} type="text" placeholder='Your Name' />
-                {errors.FullName && <span>{errors.FullName}</span>}
+                <p style={{
+                  color: "red"
+                }}>{errorForm.FullName}</p>
               </div>
 
               <div>
@@ -152,10 +194,14 @@ const LoginSignup = () => {
                   outline: "none",
 
 
-                }} type="mail" onChange={submitHandler} value={inputforn.Email}
+                }} type="mail" onChange={handleChange} value={inputforn.Email}
                   name='Email' placeholder='Your mail' />
-                {errors.Email && <span>{errors.Email}</span>}
+
+
               </div>
+              <p style={{
+                  color: "red"
+                }}>{errorForm.Email}</p>
               <input style={{
                 padding: "15px 20px",
                 width: isMobile ? "250px" : "300px",
@@ -165,12 +211,14 @@ const LoginSignup = () => {
                 outline: "none"
 
               }} type="password"
-                onChange={submitHandler}
+                onChange={handleChange}
                 value={inputforn.Password}
                 name="Password" placeholder='password' />
-              {errors.Password && <span>{errors.Password}</span>}
 
 
+              <p style={{
+                  color: "red"
+                }}>{errorForm.Password}</p>
             </div>
             {/* <Button variant='outlined'
               onClick={Submit}
@@ -206,7 +254,7 @@ const LoginSignup = () => {
               <Typography fontSize={{ xs: 10, md: 15 }} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
             </div>
 
-            <Button type='submit' onSubmit={Submit}>Submit</Button>
+            <Button type='submit' >Submit</Button>
 
           </form>
 
