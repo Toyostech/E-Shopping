@@ -14,33 +14,40 @@ import {
 const LoginSignup = () => {
   const initialValue = { FullName: "", Email: "", Password: "" }
 
-  const [inputforn, setinputform] = useState(initialValue)
-  const [errorForm, seterrorForm] = useState({})
+  const [inputform, setInputForm] = useState(initialValue)
+  const [formErrors, setformErrors] = useState({})
   const [isSubmit, setisSubmit] = useState(false)
 
 
   const handleChange = (e) => {
 
     const { name, value } = e.target
-    setinputform({ ...inputforn, [name]: value })
-    console.log(inputforn)
+    setInputForm({ ...inputform, [name]: value })
+    console.log(inputform)
 
   }
   // creacting Handle submit 
   const handleSubit = (e) => {
     e.preventDefault();
-    seterrorForm(validate(inputforn))
+    setformErrors(validate(inputform))
     setisSubmit(true)
 
 
 
   }
   useEffect(() => {
-    console.log(errorForm)
-    if (Object.keys(errorForm).length === 0 && isSubmit) {
-      console.log(inputforn)
+    console.log(formErrors)
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      console.log(inputform)
+      setInputForm(initialValue)
+      alert("You Have successfully Submitted")
+
+
     }
-  }, []);
+
+  }, [formErrors, isSubmit,]);
+
+
 
 
   // validate
@@ -49,7 +56,7 @@ const LoginSignup = () => {
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 
-    if (!data.FullName) {
+    if (!data.FullName.trim()) {
       errors.FullName = " fullname is required"
 
     }
@@ -76,7 +83,25 @@ const LoginSignup = () => {
 
 
 
+  // const clearData = () => {
+  //   const errors = {}
+  //   if (data) {
+      
+  //   }
+  //   // if (Object.keys(errorForm).length === 0 && isSubmit) {
+  //   //   setinputform(initialValue)
+  //   //   return errors
+      
+      
 
+
+  //   // }
+  //   console.log(inputforn)
+
+
+
+
+  // }
 
 
   // function validateEmail(Email) {
@@ -90,22 +115,6 @@ const LoginSignup = () => {
 
 
 
-  // const Submit = () => {
-  //   setinputform(
-  //     {
-  //       FullName: "",
-  //       Email: "",
-  //       Password: ""
-
-
-  //     }
-
-  //   )
-  //    console.log(inputforn)
-
-
-
-  // }
 
 
   const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
@@ -145,10 +154,10 @@ const LoginSignup = () => {
 
 
         }} >
-          {Object.keys(errorForm).length === 0 && isSubmit ? (<p style={{
+          {Object.keys(formErrors).length === 0 && isSubmit ? (<p style={{
             color: "green"
           }}>Sign in Successful</p>) : (
-            <pre>{JSON.stringify(inputforn, undefined, 2)}</pre>
+            <pre>{JSON.stringify(inputform, undefined, 2)}</pre>
           )}
 
           <form onSubmit={handleSubit}>
@@ -164,7 +173,7 @@ const LoginSignup = () => {
             }}>
               <div>
                 <input
-                  value={inputforn.FullName}
+                  value={inputform.FullName}
                   name='FullName'
                   onChange={handleChange}
                   style={{
@@ -180,10 +189,11 @@ const LoginSignup = () => {
                   }} type="text" placeholder='Your Name' />
                 <p style={{
                   color: "red"
-                }}>{errorForm.FullName}</p>
+                }}>{formErrors.FullName}</p>
               </div>
 
               <div>
+
 
                 <input style={{
                   padding: "15px 20px",
@@ -194,14 +204,15 @@ const LoginSignup = () => {
                   outline: "none",
 
 
-                }} type="mail" onChange={handleChange} value={inputforn.Email}
+                }}
+                 type="email" onChange={handleChange} value={inputform.Email}
                   name='Email' placeholder='Your mail' />
 
 
               </div>
               <p style={{
-                  color: "red"
-                }}>{errorForm.Email}</p>
+                color: "red"
+              }}>{formErrors.Email}</p>
               <input style={{
                 padding: "15px 20px",
                 width: isMobile ? "250px" : "300px",
@@ -212,13 +223,13 @@ const LoginSignup = () => {
 
               }} type="password"
                 onChange={handleChange}
-                value={inputforn.Password}
+                value={inputform.Password}
                 name="Password" placeholder='password' />
 
 
               <p style={{
-                  color: "red"
-                }}>{errorForm.Password}</p>
+                color: "red"
+              }}>{formErrors.Password}</p>
             </div>
             {/* <Button variant='outlined'
               onClick={Submit}
@@ -254,7 +265,7 @@ const LoginSignup = () => {
               <Typography fontSize={{ xs: 10, md: 15 }} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
             </div>
 
-            <Button type='submit' >Submit</Button>
+            <Button type='submit'  >Submit</Button>
 
           </form>
 

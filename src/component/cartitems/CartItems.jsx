@@ -1,7 +1,15 @@
-import React, { useContext } from 'react'
-import { ShopContext } from '../Context/ShopContext'
-import remove_icon from "../../Assets/cart_cross_icon.png";
-import { Box, Container, Typography, useMediaQuery, useTheme } from '@mui/material';
+import React, { useContext } from 'react';
+
+import {
+  Box,
+  Container,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
+import remove_icon from '../../Assets/cart_cross_icon.png';
+import { ShopContext } from '../Context/ShopContext';
 import MobileCart from '../MobileCart';
 
 const CartItems = () => {
@@ -12,6 +20,7 @@ const CartItems = () => {
             <Container>
                 <div>
                     {isMobile ? (
+                    
                         <MobileCart />
                     ) : (
                         <div style={{

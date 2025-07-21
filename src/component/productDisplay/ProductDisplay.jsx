@@ -1,11 +1,18 @@
-import { Button, Typography, Container, Box, useMediaQuery, useTheme } from '@mui/material'
-import React, { useContext } from 'react'
-import star_icon from '../../Assets/star_icon.png'
-import star_dull_icon from '../../Assets/star_dull_icon.png'
-import { ShopContext } from '../Context/ShopContext'
-import Size from './sizeada'
+import React, { useContext } from 'react';
 
+import {
+  Box,
+  Button,
+  Container,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 
+import star_dull_icon from '../../Assets/star_dull_icon.png';
+import star_icon from '../../Assets/star_icon.png';
+import { ShopContext } from '../Context/ShopContext';
+import Size from './sizeada';
 
 const ProductDisplay = (props) => {
     const { product } = props;
@@ -161,7 +168,8 @@ const ProductDisplay = (props) => {
                             </div>
                         </div>
                         <Button variant='contained' sx={{
-                            padding: 2,
+                            padding:isMobile? 1:2,
+                            width:isMobile? 150:200,
                             border: "none",
                             borderRadius: "30px",
                             margin: "10px 0px ",

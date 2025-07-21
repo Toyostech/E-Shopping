@@ -1,9 +1,15 @@
-import { Box, Container, Typography, useMediaQuery, useTheme } from '@mui/material'
-import React from 'react'
-import { ShopContext } from './Context/ShopContext'
-import { useContext } from 'react'
-import remove_icon from "../Assets/cart_cross_icon.png";
+import React, { useContext } from 'react';
 
+import {
+  Box,
+  Container,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
+
+import remove_icon from '../Assets/cart_cross_icon.png';
+import { ShopContext } from './Context/ShopContext';
 
 const MobileCart = () => {
     const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
@@ -20,6 +26,8 @@ const MobileCart = () => {
                             return (
 
                                 <div key={e.id}>
+                                    <hr />
+                                    
                                     <Box sx={{
                                         display: "flex",
                                         justifyContent: "space-between",
