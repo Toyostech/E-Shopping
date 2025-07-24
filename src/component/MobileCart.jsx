@@ -4,17 +4,15 @@ import {
   Box,
   Container,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 
 import remove_icon from '../Assets/cart_cross_icon.png';
 import { ShopContext } from './Context/ShopContext';
 
 const MobileCart = () => {
-    const isMobile = useMediaQuery(useTheme().breakpoints.down("md"))
+   
 
-    const { getTotalAmount, all_product, cartItems, removefromCart } = useContext(ShopContext)
+    const { all_product, cartItems, removefromCart } = useContext(ShopContext)
     return (
         <>
             <Container>
