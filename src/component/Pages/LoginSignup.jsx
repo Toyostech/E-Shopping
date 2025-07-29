@@ -161,7 +161,7 @@ const LoginSignup = () => {
           )}
 
           <form onSubmit={handleSubit}>
-            <Typography variant='h3' fontSize={30} fontWeight={"bold"}>Sign Up</Typography>
+            <Typography variant='h3' fontSize={30} fontWeight={"bold"}>Login </Typography>
             <div style={{
               marginTop: 10,
               paddingTop: 15,
@@ -208,8 +208,8 @@ const LoginSignup = () => {
                  type="email" onChange={handleChange} value={inputform.Email}
                   name='Email' placeholder='Your mail' />
 
-
               </div>
+
               <p style={{
                 color: "red"
               }}>{formErrors.Email}</p>
@@ -250,7 +250,7 @@ const LoginSignup = () => {
               padding: 20
             }}>
               <Typography variant='body2' fontWeight={500}>Alread have a account?</Typography>
-              <Typography variant='body2' fontWeight={600} color='red'> Login here</Typography>
+              <Typography variant='body2' fontWeight={600} color='red'> Sign here</Typography>
             </div>
 
 
@@ -265,7 +265,7 @@ const LoginSignup = () => {
               <Typography fontSize={{ xs: 10, md: 15 }} fontWeight={500} color='gray'>By continuing, i agree to he terms of use & privacy.</Typography>
             </div>
 
-            <Button type='submit'  >Submit</Button>
+            <Button variant='contained' type='submit'>Submit</Button>
 
           </form>
 
